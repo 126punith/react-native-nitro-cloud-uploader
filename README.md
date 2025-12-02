@@ -4,7 +4,7 @@
   </picture>
 </a>
 
-# react-native-nitro-cloud-uploader (Beta) 
+# react-native-nitro-cloud-uploader (Beta)
 
 **React Native Nitro Module** for **reliable, resumable, background-friendly uploads** of large files (audio, video, images, PDFs) to **S3-compatible storage** — built for real production workloads.
 
@@ -45,24 +45,28 @@ npm install react-native-nitro-cloud-uploader react-native-nitro-modules
   </tr>
   <tr>
     <td align="center">
-      <video src="https://github.com/user-attachments/assets/f6c23e68-5e3f-4538-9c78-877208847bfc" height="650" width="300" controls></video>
+<video height="650" width="300" controls>
+  <source src="https://github.com/user-attachments/assets/f6c23e68-5e3f-4538-9c78-877208847bfc" type="video/mp4" />
+ <img src="./docs/videos/iOS.gif" width="300" alt="Demo GIF" />
+</video>
     </td>
   </tr>
 </table>
 
 ---
 
-> [!INFO]
+> [!NOTE]
+>
 > S3 multipart **PUT** uploads require a **minimum chunk size of 5 MB**, so this library defaults to splitting files into 5 MB parts to prevent upload issues.
-> 
+>
 > You must implement your own backend endpoint to generate the multipart presigned URLs. Once provided, the library automatically handles uploading each part and storing the returned **ETag** values for you.
-
+> Demo showcases uploading to cloudflare R2 Bucket
 
 ```tsx
-  const BASE_URL = 'https://api.uploader.com/file-uploader';
-  const CREATE_UPLOAD_URL = `${BASE_URL}/create-and-start-upload`;
-  const COMPLETE_UPLOAD_URL = `${BASE_URL}/complete-upload`;
-  const ABORT_UPLOAD_URL = `${BASE_URL}/abort-upload`;
+const BASE_URL = 'https://api.uploader.com/file-uploader';
+const CREATE_UPLOAD_URL = `${BASE_URL}/create-and-start-upload`;
+const COMPLETE_UPLOAD_URL = `${BASE_URL}/complete-upload`;
+const ABORT_UPLOAD_URL = `${BASE_URL}/abort-upload`;
 ```
 
 ---
@@ -109,7 +113,7 @@ await CloudUploader.startUpload(newUploadId, filePath, uploadUrls, 3, true);
 | **iOS**           | ✅ Fully Supported             |
 | **Android**       | 🚧 Does not work (PRs welcome) |
 | **iOS Simulator** | ✅ Works                       |
-| **AOSP Emulator** | ❗ Not tested                  |
+| **AOSP Emulator** | 🚧 Does not work (PRs welcome) |
 
 ---
 

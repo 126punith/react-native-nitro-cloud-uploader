@@ -315,7 +315,7 @@ export default function App() {
         <View style={[styles.progressBar, { width: `${progress * 100}%` }]} />
       </View>
 
-      <View style={{ height: 20 }} />
+      <View style={styles.divider} />
 
       <Button
         title="📁 Pick File & Upload"
@@ -323,7 +323,7 @@ export default function App() {
         disabled={isUploading}
       />
 
-      <View style={{ height: 12 }} />
+      <View style={styles.divider} />
 
       {isUploading && !isPaused && (
         <Button title="⏸️ Pause" onPress={pause} color="#FF9800" />
@@ -333,7 +333,7 @@ export default function App() {
         <Button title="▶️ Resume" onPress={resume} color="#4CAF50" />
       )}
 
-      <View style={{ height: 12 }} />
+      <View style={styles.divider} />
 
       {isUploading && (
         <Button title="⏹️ Cancel" onPress={cancel} color="#f44336" />
@@ -386,4 +386,6 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#4CAF50',
   },
+
+  divider: { height: 20 },
 });
